@@ -9,7 +9,7 @@
 bill = {
   :service_url => "https://fillmurray.com",
   :service_name => "fill-murray",
-  :sematic_profile => "https://fillmurray.com",
+  :semantic_profile => "https://fillmurray.com",
   :request_media_type => "application/json",
   :response_media_type => "application/json",
   :health_ttl => 300000,
@@ -21,7 +21,7 @@ bill = {
 nic = {
   :service_url => "https://placecage.com",
   :service_name => "place-cage",
-  :sematic_profile => "https://placecage.com",
+  :semantic_profile => "https://placecage.com",
   :request_media_type => "application/json",
   :response_media_type => "application/json",
   :health_ttl => 300000,

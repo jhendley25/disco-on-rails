@@ -1,5 +1,30 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :renew]
+
+  
+  def health
+    @service = Service.where({tags: service_params[:tags]})
+  end
+  
+  def find
+    @service = Service.where({tags: service_params[:tags]})
+  end
+
+  def bind
+    # @service = Service.where({tags: service_params[:tags]})
+  end
+
+  def renew
+    @service.update({health_last_ping: Time.now})
+  end
+
+  def register
+    service.find_or_create(service_params)
+  end
+
+  def unregister
+    @service.update({health_last_ping: Time.now})
+  end
 
   # GET /services
   # GET /services.json

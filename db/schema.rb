@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_152636) do
   create_table "services", force: :cascade do |t|
     t.string "service_url"
     t.string "service_name"
-    t.string "sematic_profile"
+    t.string "semantic_profile"
     t.string "request_media_type"
     t.string "response_media_type"
     t.integer "health_ttl"

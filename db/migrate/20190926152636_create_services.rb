@@ -3,7 +3,7 @@ class CreateServices < ActiveRecord::Migration[6.0]
     create_table :services do |t|
       t.string :service_url
       t.string :service_name
-      t.string :sematic_profile
+      t.string :semantic_profile
       t.string :request_media_type
       t.string :response_media_type
       t.integer :health_ttl
