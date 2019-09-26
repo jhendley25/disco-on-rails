@@ -7,7 +7,8 @@ class ServicesController < ApplicationController
   end
   
   def find
-    @service = Service.where({tags: service_params[:tags]})
+    search_tags = params[:tags].split(" ")
+    @services = Service.joins(:tags).where('tags.name = ?', search_tags).where(active: true)
   end
 
   def bind
@@ -19,15 +20,14 @@ class ServicesController < ApplicationController
   end
 
   def register
-
     @service = Service.find_or_create_by(service_url: service_params[:service_url])
     @service.update_and_register(service_params)
-
   end
 
   def unregister
     @service = Service.find_by(reg_id: service_params[:reg_id])
     @service.deactivate
+    head 202
   end
 
   # GET /services

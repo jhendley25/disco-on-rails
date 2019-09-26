@@ -17,13 +17,23 @@ unregister_options = {
 
 response = HTTParty.post('http://localhost:3000/unregister', unregister_options)
 
-# response = HTTParty.get('http://localhost:3000/renew')
-
-
-
 # ok the above was 'a service registering'
 # i guess the below is 'a service consuming another service' or something
-# response = HTTParty.get("http://localhost:3000/find?id")
+# 1 active service
+response = HTTParty.get("http://localhost:3000/find?tags=image-generator")
+
+puts response.body
+
+register_resp = HTTParty.post('http://localhost:3000/register', options)
+
+# 2 active services
+response = HTTParty.get("http://localhost:3000/find?tags=image-generator")
+
+puts response.body
+
+
+
+# response = HTTParty.get('http://localhost:3000/renew')
 
 # response = HTTParty.get('http://localhost:3000/bind')
 

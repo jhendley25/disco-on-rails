@@ -21,6 +21,9 @@
         <td>tags: <%= service.tags %></td>
       </tr>
       <tr>
+        <td>active: <%= service.active %></td>
+      </tr>
+      <tr>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>

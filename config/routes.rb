@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get 'bind' => 'services#bind'
   get 'renew' => 'services#renew'
   post 'register' => 'services#register'
-  get 'unregister' => 'services#unregister'
+  post 'unregister' => 'services#unregister'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

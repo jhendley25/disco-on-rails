@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
   has_many :tags
   def update_and_register(params)
-    self.update(params)
+    self.update(params.except(:tags))
     self.create_tags(params[:tags])
 
     self.reg_id = SecureRandom.uuid
