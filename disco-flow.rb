@@ -75,7 +75,14 @@ puts "*"*80
 sleep 5
 
 puts "...And searching again"
-
+response = HTTParty.get("http://localhost:3000/find?tags=image-generator")
+result_count = response.length
+puts "*"*80
+puts "Registry search results: #{result_count} found"
+response.each do |service|
+  puts "Service: #{service["service_name"]}"
+end
+puts "*"*80
 
 
 
