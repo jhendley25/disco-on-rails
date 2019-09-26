@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+bill = {
+  :service_url => "https://fillmurray.com",
+  :service_name => "fill-murray",
+  :sematic_profile => "https://fillmurray.com",
+  :request_media_type => "application/json",
+  :response_media_type => "application/json",
+  :health_ttl => 300000,
+  :review_ttl => 300000,
+  :health_last_ping => Time.now,
+  :renew_last_ping => Time.now,
+  :tags => "image-generator bill-murray",
+}
+nic = {
+  :service_url => "https://placecage.com",
+  :service_name => "place-cage",
+  :sematic_profile => "https://placecage.com",
+  :request_media_type => "application/json",
+  :response_media_type => "application/json",
+  :health_ttl => 300000,
+  :review_ttl => 300000,
+  :health_last_ping => Time.now,
+  :renew_last_ping => Time.now,
+  :tags => "image-generator place-cage",
+}
+
+Service.create(bill)
+Service.create(nic)
