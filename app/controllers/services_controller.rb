@@ -19,11 +19,15 @@ class ServicesController < ApplicationController
   end
 
   def register
-    service.find_or_create(service_params)
+
+    @service = Service.find_or_create_by(service_url: service_params[:service_url])
+    @service.update_and_register(service_params)
+
   end
 
   def unregister
-    @service.update({health_last_ping: Time.now})
+    @service = Service.find_by(reg_id: service_params[:reg_id])
+    @service.deactivate
   end
 
   # GET /services
@@ -94,6 +98,7 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.fetch(:service, {})
+      # FIXME later
+      params.fetch(:service, {}).permit(:service_url,:service_name,:semantic_profile,:request_media_type,:response_media_type,:health_ttl,:review_ttl,:tags)
     end
 end

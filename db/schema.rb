@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_152636) do
     t.datetime "health_last_ping"
     t.datetime "renew_last_ping"
     t.string "tags"
+    t.string "reg_id"
+    t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

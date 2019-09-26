@@ -11,6 +11,8 @@ class CreateServices < ActiveRecord::Migration[6.0]
       t.datetime :health_last_ping
       t.datetime :renew_last_ping
       t.string :tags
+      t.string :reg_id
+      t.boolean :active
       t.timestamps
     end
   end
