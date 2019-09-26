@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
   end
 
   def renew
-    @service.update({health_last_ping: Time.now})
+    @service.update({renew_last_ping: Time.now})
   end
 
   def register
@@ -25,8 +25,8 @@ class ServicesController < ApplicationController
   end
 
   def unregister
-    @service = Service.find_by(reg_id: service_params[:reg_id])
-    @service.deactivate
+    @service = Service.find_by(reg_id: params[:reg_id])
+    @service.update(active: false)
     head 202
   end
 
@@ -99,6 +99,6 @@ class ServicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
       # FIXME later
-      params.fetch(:service, {}).permit(:service_url,:service_name,:semantic_profile,:request_media_type,:response_media_type,:health_ttl,:review_ttl,:tags)
+      params.fetch(:service, {}).permit(:service_url,:service_name,:semantic_profile,:request_media_type,:response_media_type,:health_ttl,:renew_ttl,:tags)
     end
 end

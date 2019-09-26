@@ -5,6 +5,7 @@ ruby '2.6.0'
 
 gem 'httparty'
 gem 'pry'
+gem 'whenever', require: false
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

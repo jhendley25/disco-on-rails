@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_174239) do
     t.string "request_media_type"
     t.string "response_media_type"
     t.integer "health_ttl"
-    t.integer "review_ttl"
+    t.integer "renew_ttl"
     t.datetime "health_last_ping"
     t.datetime "renew_last_ping"
     t.string "reg_id"

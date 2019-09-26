@@ -6,7 +6,7 @@ class Service < ApplicationRecord
 
     self.reg_id = SecureRandom.uuid
     self.active = true
-    self.save
+    self.save!
   end
 
   def deactivate

@@ -13,7 +13,7 @@ bill = {
   :request_media_type => "application/json",
   :response_media_type => "application/json",
   :health_ttl => 300000,
-  :review_ttl => 300000,
+  :renew_ttl => 300000,
   :health_last_ping => Time.now,
   :renew_last_ping => Time.now,
 }
@@ -24,7 +24,7 @@ nic = {
   :request_media_type => "application/json",
   :response_media_type => "application/json",
   :health_ttl => 300000,
-  :review_ttl => 300000,
+  :renew_ttl => 300000,
   :health_last_ping => Time.now,
   :renew_last_ping => Time.now,
 }
