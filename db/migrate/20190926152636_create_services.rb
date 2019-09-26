@@ -10,7 +10,6 @@ class CreateServices < ActiveRecord::Migration[6.0]
       t.integer :review_ttl
       t.datetime :health_last_ping
       t.datetime :renew_last_ping
-      t.string :tags
       t.string :reg_id
       t.boolean :active
       t.timestamps

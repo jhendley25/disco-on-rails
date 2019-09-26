@@ -16,7 +16,6 @@ bill = {
   :review_ttl => 300000,
   :health_last_ping => Time.now,
   :renew_last_ping => Time.now,
-  :tags => "image-generator bill-murray",
 }
 nic = {
   :service_url => "https://placecage.com",
@@ -28,8 +27,7 @@ nic = {
   :review_ttl => 300000,
   :health_last_ping => Time.now,
   :renew_last_ping => Time.now,
-  :tags => "image-generator place-cage",
 }
 
-Service.create(bill)
-Service.create(nic)
+Service.create(bill).create_tags("image-generator bill-murray")
+Service.create(nic).create_tags("image-generator place-cage")
