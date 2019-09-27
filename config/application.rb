@@ -10,19 +10,13 @@ module DiscoOnRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.after_initialize do
-      # definitely need a proper cronjob setup, but whatever, just spin up a new thread for now   
-      Thread.new do
-        loop do
-          Service.all.each do |service|
-            # puts "checking service: #{service.service_name}"
-            if service.health_last_ping > 2.seconds.ago
-              service.update(active: false)
-            end
-          end
-          sleep 5
-        end
-      end 
+    if defined?(Rails::Server)
+      config.after_initialize do
+        # definitely need a proper cronjob setup, but whatever, just spin up a new thread for now   
+        Thread.new do
+          HealthCheckHelper.start
+        end 
+      end
     end
 
     # Settings in config/environments/* take precedence over those specified here.
